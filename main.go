@@ -23,5 +23,6 @@ func main() {
 
 // Handler
 func hello(c echo.Context) error {
-	return c.String(http.StatusOK, "Hello, World!")
+	code := c.QueryParam("code")
+	return c.String(http.StatusOK, "Hello, World!"+" "+code)
 }
