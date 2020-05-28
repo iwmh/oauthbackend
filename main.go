@@ -15,6 +15,7 @@ func main() {
 	e.Use(middleware.Recover())
 
 	// Routes
+	e.GET("/", root)
 	e.GET("/callback", hello)
 
 	// Start server
@@ -24,5 +25,13 @@ func main() {
 // Handler
 func hello(c echo.Context) error {
 	code := c.QueryParam("code")
-	return c.String(http.StatusOK, "Hello, World!"+" "+code)
+	url := "https://wear.googleapis.com/3p_auth/app.html?full_suffix_from_redirect=" +
+		"com.example.spotifywearapp" + "?code=" + code
+	return c.Redirect(http.StatusMovedPermanently, url)
+}
+
+func root(c echo.Context) error {
+	value := c.QueryParams()
+	_ = value
+	return c.String(http.StatusOK, "default")
 }
