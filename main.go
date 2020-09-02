@@ -29,7 +29,7 @@ func hello(c echo.Context) error {
 	code := c.QueryParam("code")
 	state := c.QueryParam("state")
 	url := "https://wear.googleapis.com/3p_auth/app.html?full_suffix_from_redirect=" +
-		"com.example.spotifywearapp" + "?code=" + code + "?state=" + state
+		"com.example.spotifywearapp" + "?code=" + code + "&state=" + state
 	return c.Redirect(http.StatusMovedPermanently, url)
 }
 
