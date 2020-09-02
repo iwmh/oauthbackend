@@ -4,6 +4,7 @@ import (
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 	"net/http"
+	"os"
 )
 
 func main() {
@@ -19,7 +20,7 @@ func main() {
 	e.GET("/callback", hello)
 
 	// Start server
-	e.Logger.Fatal(e.StartAutoTLS(":8443"))
+	e.Logger.Fatal(e.StartAutoTLS(os.Getenv("PORT")))
 }
 
 // Handler
