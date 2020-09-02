@@ -1,10 +1,11 @@
 package main
 
 import (
-	"github.com/labstack/echo"
-	"github.com/labstack/echo/middleware"
 	"net/http"
 	"os"
+
+	"github.com/labstack/echo"
+	"github.com/labstack/echo/middleware"
 )
 
 func main() {
@@ -26,7 +27,6 @@ func main() {
 // Handler
 func hello(c echo.Context) error {
 	code := c.QueryParam("code")
-	state := c.QueryParam("state")
 	url := "https://wear.googleapis.com/3p_auth/app.html?full_suffix_from_redirect=" +
 		"com.example.spotifywearapp" + "?code=" + code
 	return c.Redirect(http.StatusMovedPermanently, url)
