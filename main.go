@@ -19,7 +19,7 @@ func main() {
 	e.GET("/callback", hello)
 
 	// Start server
-	e.Logger.Fatal(e.Start(":443"))
+	e.Logger.Fatal(e.StartAutoTLS(":443"))
 }
 
 // Handler
