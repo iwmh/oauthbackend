@@ -20,7 +20,7 @@ func main() {
 	e.GET("/callback", hello)
 
 	// Start server
-	e.Logger.Fatal(e.StartAutoTLS(":" + os.Getenv("PORT")))
+	e.Logger.Fatal(e.StartServer(":" + os.Getenv("PORT")))
 }
 
 // Handler
