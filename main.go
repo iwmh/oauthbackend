@@ -28,9 +28,8 @@ func main() {
 func hello(c echo.Context) error {
 	code := c.QueryParam("code")
 	state := c.QueryParam("state")
-	packageName := os.Getenv("PACKAGE")
 	url := "https://wear.googleapis.com/3p_auth/app.html?full_suffix_from_redirect=" +
-		packageName + "?code=" + code + "&state=" + state
+		"com.iwmh.spotifywearapp" + "?code=" + code + "&state=" + state
 	return c.Redirect(http.StatusMovedPermanently, url)
 }
 
